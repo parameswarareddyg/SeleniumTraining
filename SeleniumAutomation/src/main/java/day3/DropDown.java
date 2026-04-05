@@ -29,7 +29,7 @@ public class DropDown {
 		select1.selectByIndex(1);
 		select1.selectByIndex(3);
 		
-		assert
+		// assert
 		
 		
 	}
