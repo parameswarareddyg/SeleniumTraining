@@ -1,5 +1,7 @@
 package day3;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,10 +28,15 @@ public class DropDown {
 		WebElement doubleDropDown = driver.findElement(By.id("ide"));
 		Select select1 = new Select(doubleDropDown);
 		
-		select1.selectByIndex(1);
-		select1.selectByIndex(3);
+//		select1.selectByIndex(1);
+//		select1.selectByIndex(3);
+		List<WebElement> multiDropDownElements=select1.getOptions();
 		
-		assert
+		for (WebElement val : multiDropDownElements) {
+				select1.selectByVisibleText(val.getText());
+		}
+		
+		driver.quit();
 		
 		
 	}
