@@ -32,16 +32,11 @@ public class DropDown {
 //		select1.selectByIndex(3);
 		List<WebElement> multiDropDownElements=select1.getOptions();
 		
-<<<<<<< HEAD
 		for (WebElement val : multiDropDownElements) {
 				select1.selectByVisibleText(val.getText());
 		}
 		
 		driver.quit();
-=======
-		// assert
->>>>>>> a935517cbb432b607b7bdee9d89d42f816649c7c
-		
 		
 	}
 
