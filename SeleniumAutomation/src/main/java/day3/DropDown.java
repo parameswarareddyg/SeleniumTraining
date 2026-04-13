@@ -19,7 +19,12 @@ public class DropDown {
 		
 		Select select = new Select(singleDropDown);
 		
-//		select.selectByValue("net");
+		
+		System.out.println("Selected Option is : "+select.getFirstSelectedOption().getText());
+		
+		select.selectByValue("net");
+		
+		System.out.println("Selected Option is : "+select.getFirstSelectedOption().getText());
 //		select.selectByVisibleText("Javascript");
 		select.selectByIndex(1);
 		System.out.println(select.getFirstSelectedOption().getText());
