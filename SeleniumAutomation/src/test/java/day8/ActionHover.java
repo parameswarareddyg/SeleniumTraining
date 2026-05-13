@@ -29,7 +29,6 @@ public class ActionHover {
 		driver.findElement(By.xpath("//a[@title='Sign Up']")).click();
 		Thread.sleep(6000);
 		driver.quit();
-
 	}
 
 }

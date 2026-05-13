@@ -1,0 +1,57 @@
+1. Self intro
+2. Explain oops concept 
+3. Method overloading and overriding example in selenium
+4. Explain constructor and types
+5. Explain stack and hashmap
+6. Inheritance type and which inheritance not supported in Java 
+7. How do you debug code
+8. How put the breakpoint 
+9. Explain Interface
+10. Find element and find elements
+11. Windowhandles
+12. Handling  iframe
+13. Types of waits
+14. How do you handle the Stale element exception 
+15. What is the alternate if sendkeys doesn’t work 
+16. Handling dropdowns
+17. Locaters
+18. Handling alerts 
+19. Parameterized testing 
+20. Scrolling in selenium
+21. Exceptions
+22. How to get the data from xls and xlsx
+23. Difference between xpath and css selectors 
+24. Driver.close() and driver.quit()
+25. Maximum wait 
+26. Print Date format DDMMYYYY
+27. Print middle charter of strings 
+28. Print sum of digit 
+29. GIT commit
+30. GIT PUSH
+31. GIT STATUS
+
+Answers:
+Find element and find elements
+findElement will return only one element and if not found in webpage throws no such element exception.
+findElements will return List<WebElement> and if not found in webpage returns empty List.
+Maximum Wait :
+Selenium does not have a strict maximum wait limit technically,
+but professionally we use optimized timeout values. 
+Explicit waits are preferred because Selenium waits only until the condition is satisfied, 
+improving framework stability and execution speed.
+
+driver.close() and driver.quit() :
+driver.close() close the current window/tab 
+driver.quit() Closes all browser windows and ends WebDriver session
+
+Major Differences
+Feature						XPath									CSS Selector
+Syntax					XML path language							CSS styling syntax
+Direction				Forward + backward traversal				Forward traversal only
+Performance				Slightly slower								Usually faster
+Readability				Longer										Cleaner & shorter
+Parent traversal		Supported									Not supported
+Text matching			Supported									Limited
+Recommended for 
+complex structure		Yes											Limited
+Browser native support	No											Yes

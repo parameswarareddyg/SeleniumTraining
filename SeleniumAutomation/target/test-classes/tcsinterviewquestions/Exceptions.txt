@@ -1,0 +1,265 @@
+What are Exceptions in Selenium?
+Exceptions are runtime errors that occur during test execution.
+They happen when:
+
+
+Selenium cannot perform an action
+
+
+Application behaves unexpectedly
+
+
+Synchronization fails
+
+
+Locator is incorrect
+
+
+
+Simple Real-World Example
+Imagine:
+
+
+You try opening a locked door
+
+
+Or searching for a missing file
+
+
+System throws an error.
+Similarly Selenium throws exceptions when something goes wrong.
+
+Why Exception Knowledge is Important
+Professional Automation Engineers use exceptions to:
+
+
+Debug failures quickly
+
+
+Build stable frameworks
+
+
+Implement retry mechanisms
+
+
+Improve synchronization
+
+
+
+Common Types of Selenium Exceptions
+ExceptionMeaningNoSuchElementExceptionElement not foundStaleElementReferenceExceptionDOM changedTimeoutExceptionWait timeout exceededElementNotInteractableExceptionElement cannot interactElementClickInterceptedExceptionAnother element blocks clickNoSuchWindowExceptionWindow not foundNoSuchFrameExceptionFrame not foundNoAlertPresentExceptionAlert not presentInvalidSelectorExceptionWrong XPath/CSSSessionNotFoundExceptionBrowser session closedMoveTargetOutOfBoundsExceptionElement outside viewportJavascriptExceptionJavaScript execution failed
+
+1. NoSuchElementException
+Most common exception.
+Occurs when Selenium cannot find element.
+driver.findElement(By.id("login"));
+If element absent:
+NoSuchElementException
+
+Causes
+
+
+Wrong locator
+
+
+Slow loading
+
+
+Element inside iframe
+
+
+Dynamic DOM
+
+
+
+Professional Fix
+Use Explicit Wait:
+WebDriverWait wait =    new WebDriverWait(driver,        Duration.ofSeconds(10));wait.until(ExpectedConditions    .visibilityOfElementLocated(        By.id("login")));
+
+2. StaleElementReferenceException
+Occurs when DOM refreshes after locating element.
+WebElement button =    driver.findElement(By.id("submit"));driver.navigate().refresh();button.click();
+Old reference becomes invalid.
+
+Professional Fix
+Re-locate element.
+
+3. TimeoutException
+Occurs when wait condition fails within maximum time.
+wait.until(ExpectedConditions    .visibilityOfElementLocated(        By.id("test")));
+Condition not satisfied.
+
+Causes
+
+
+Slow application
+
+
+Incorrect locator
+
+
+Element never appears
+
+
+
+4. ElementNotInteractableException
+Element exists but cannot interact.
+Example:
+
+
+Hidden element
+
+
+Disabled button
+
+
+element.click();
+
+Professional Fix
+Wait for clickable condition.
+ExpectedConditions.elementToBeClickable(locator)
+
+5. ElementClickInterceptedException
+Another element blocks click.
+Common with:
+
+
+Popup
+
+
+Loader
+
+
+Ads
+
+
+Sticky headers
+
+
+
+Example
+Other element would receive the click
+
+Professional Fix
+
+
+Wait for overlay disappearance
+
+
+Scroll element
+
+
+Use JS click if necessary
+
+
+
+6. NoSuchWindowException
+Occurs when switching to invalid window.
+driver.switchTo().window("ABC");
+Window does not exist.
+
+7. NoSuchFrameException
+Occurs when frame not found.
+driver.switchTo().frame("frame1");
+
+Professional Fix
+Verify iframe before switching.
+
+8. NoAlertPresentException
+Occurs when alert absent.
+driver.switchTo().alert();
+
+Professional Fix
+Use alert wait.
+ExpectedConditions.alertIsPresent()
+
+9. InvalidSelectorException
+Wrong XPath or CSS syntax.
+Example:
+By.xpath("//input[@id='test'")
+Missing bracket.
+
+10. SessionNotFoundException
+Occurs after:
+
+
+driver.quit()
+
+
+Browser crash
+
+
+Then trying:
+driver.findElement(By.id("x"));
+
+How Exceptions Work Internally
+Internally Selenium:
+
+
+Sends command to browser
+
+
+Browser driver executes
+
+
+Failure occurs
+
+
+WebDriver returns exception object
+
+
+Selenium throws exception in Java
+
+
+
+Exception Hierarchy
+Most Selenium exceptions extend:
+WebDriverException
+
+Professional Exception Handling
+Try-Catch Example
+try {    driver.findElement(By.id("login")).click();} catch (NoSuchElementException e) {    System.out.println("Element not found");}
+
+Advanced Framework-Level Handling
+Professional frameworks:
+
+
+Capture screenshots
+
+
+Retry failed steps
+
+
+Log exceptions
+
+
+Generate reports
+
+
+
+Real Project Best Practices
+Experienced Automation Engineers:
+
+
+Use explicit waits
+
+
+Avoid hardcoded sleeps
+
+
+Create reusable wait methods
+
+
+Handle dynamic elements smartly
+
+
+Use meaningful logging
+
+
+
+Most Frequently Seen Exceptions in Real Projects
+ExceptionFrequencyNoSuchElementExceptionVery HighTimeoutExceptionVery HighStaleElementReferenceExceptionHighElementClickInterceptedExceptionHigh
+
+Interview-Level Answer
+
+“Exceptions in Selenium are runtime errors that occur when WebDriver cannot perform an operation successfully. Common exceptions include NoSuchElementException, StaleElementReferenceException, TimeoutException, and ElementNotInteractableException. In professional automation frameworks, we handle these using explicit waits, retry mechanisms, reusable utilities, and proper synchronization strategies.”

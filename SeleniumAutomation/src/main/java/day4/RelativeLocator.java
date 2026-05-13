@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
-import net.bytebuddy.dynamic.scaffold.TypeWriter.MethodPool.Record.ForDefinedMethod.WithAnnotationDefaultValue;
-
 public class RelativeLocator {
 
 	public static void main(String[] args) {
@@ -22,9 +20,11 @@ public class RelativeLocator {
 		driver.manage().window().maximize();
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		driver.get("https://www.instagram.com/");
+		
 		WebElement usernameElement = driver.findElement(By.xpath("//input[@name='email']"));
 		js.executeScript("arguments[0].style.border='3px solid red';"+
 					     "arguments[0].style.backgroundColor='yellow';", usernameElement);
+		
 		usernameElement.sendKeys("abc@gmail.com");
 		WebElement passwordElement = driver.findElement(with(By.tagName("input")).below(usernameElement));
 		js.executeScript("arguments[0].style.border='3px solid red';"+
